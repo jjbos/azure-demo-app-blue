@@ -1,6 +1,6 @@
 # environment specific local variables
 locals {
-  environment = "development"
+  environment = "test"
   project     = "Azure Project Modularization"
   app_name    = "erp"
 }
@@ -11,14 +11,9 @@ module "main" {
 
   environment        = local.environment
   app_name           = local.app_name
-  app_subnet         = "10.132.135.0/28"
-  default_tags       = local.tags
-  
+  app_subnet        = "10.132.102.224/28"
+
   # sizing
-  vmss_image_sku     = "22_04-lts"
-  vmss_image_type    = "0001-com-ubuntu-server-jammy"
-  vmss_image_version = "latest"
-  vmss_size      = "Standard_B1ms"
-  vmss_min_size      = 1
-  vmss_max_size      = 1
+  vmss_min_size          = 2
+  vmss_max_size          = 4
 }
